@@ -1,0 +1,12 @@
+body{
+    background-image: url('https://www.edreams.com/blog/wp-content/uploads/sites/3/2016/03/globe-map.gif');
+    background-size: cover;
+
+    height: 100vh;
+    padding:0;
+    margin:0;
+}
+
+h1 {
+    color: white
+}

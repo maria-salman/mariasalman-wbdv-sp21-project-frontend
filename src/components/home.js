@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import './home.css'
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             <Link to="/register">
                 <h1>Register</h1>
             </Link>
+
         </div>
     )
 }
