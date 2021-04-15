@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from "react-router-dom";
 
 const Login = () => {
+
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
     <div className="container">
@@ -15,7 +18,9 @@ const Login = () => {
                 <div className="col-sm-10">
                     <input className="form-control"
                         id="username"
-                        placeholder="Username"/>
+                        placeholder="Username"
+                        onChange={(event) =>
+                            setUser(event.target.value)}/>
                 </div>
             </div>
             <div className="form-group row">
@@ -26,7 +31,9 @@ const Login = () => {
                     <input type="password"
                         className="form-control"
                         id="password"
-                        placeholder="********"/>
+                        placeholder="********"
+                        onChange={(event) =>
+                            setPassword(event.target.value)}/>
                 </div>
             </div>
             <div className="form-group row">
@@ -37,7 +44,7 @@ const Login = () => {
                         Sign in
                         </button>
                     <button className="btn btn-danger btn-block"
-                        formAction="/home">
+                        formAction="/">
                         Cancel
                         </button>
                     <div className="row">
