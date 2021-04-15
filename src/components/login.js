@@ -37,7 +37,7 @@ const Login = () => {
                         Sign in
                         </button>
                     <button className="btn btn-danger btn-block"
-                        formAction="/home">
+                        formAction="/">
                         Cancel
                         </button>
                     <div className="row">
