@@ -2,9 +2,9 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/home";
 import Search from "./components/search";
 import Details from "./components/details";
-import Login from "./components/login";
-import Register from "./components/register";
-import Profile from "./components/profile";
+import Login from "./components/users/login";
+import Register from "./components/users/register";
+import Profile from "./components/users/profile";
 import './App.css';
 
 function App() {

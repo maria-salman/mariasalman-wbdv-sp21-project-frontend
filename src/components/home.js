@@ -5,21 +5,26 @@ import './home.css'
 const Home = () => {
     return (
         <div>
-            <h1>Home</h1>
-            <br/>
-            <Link to="/search/">
-                <h1>Search</h1>
-            </Link>
-            <Link to="/details">
-                <h1>Details</h1>
-            </Link>
-            <Link to="/login">
-                <h1>Login</h1>
-            </Link>
+            <h2>Home Screen</h2>
             <Link to="/register">
-                <h1>Register</h1>
+                Register
             </Link>
-
+            <br/>
+            <Link to="/login">
+                Login
+            </Link>
+            <br/>
+            <Link to="/profile">
+                Profile
+            </Link>
+            <br/>
+            <Link to="/search">
+                Search
+            </Link>
+            <br/>
+            <Link to="/details">
+                Details
+            </Link>
         </div>
     )
 }
