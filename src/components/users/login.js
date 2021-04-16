@@ -19,26 +19,58 @@ const Login = () => {
     }
 
     return(
-        <div>
+        <div className = "container-fluid">
             <h1>Login</h1>
-            <input
-                value={credentials.username}
-                onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
-                className="form-control"
-                placeholder="username"/>
-            <input
-                value={credentials.password}
-                onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
-                className="form-control"
-                placeholder="password"/>
-            <button
-                onClick={login}
-                className="btn btn-primary">
-                Login
-            </button>
-            <Link to="/register">
-                Register
-            </Link>
+            <div className = "form-group row">
+                <label htmlFor='username' className='col-sm-2 col-form-label'>Username</label>
+                <div className = "col-sm-10">
+                    <input
+                        className = "form-control"
+                        value={credentials.username}
+                        onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
+                        className="form-control"
+                        id= "username"
+                        placeholder="username"/>
+                </div>
+            </div>
+            <div className = "form-group row">
+                <label htmlFor='password' className='col-sm-2 col-form-label'>Password</label>
+                <div className = "col-sm-10">
+                    <input
+                        className = "orm-control"
+                        value={credentials.password}
+                        onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
+                        className="form-control"
+                        id = "password"
+                        placeholder="password"/>
+                </div>
+            </div>
+            <div className="form-group row">
+                    <label className="col-sm-2 col-form-label"></label>
+                    <div className="col-sm-10">
+                        <button className="btn btn-primary btn-block"
+                            onClick={login}>
+                            Login
+                            </button>
+                        <button className="btn btn-danger btn-block"
+                            formAction="/home">
+                            Cancel
+                            </button>
+                        <div className="row">
+                            <div className="col-6">
+                                <Link to={"/"}>
+                                    Forgot Password?
+                                </Link>
+                            </div>
+                            <div className="col-6">
+                                <Link to="/register"
+                                    className="float-right">
+                                    Sign up
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </div>
     )
 }

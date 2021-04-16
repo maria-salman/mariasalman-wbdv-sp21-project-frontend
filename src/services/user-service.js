@@ -1,5 +1,5 @@
 // const USER_API = "http://localhost:4000/api/users";
-const USER_API = process.env.REACT_APP_USER_API
+const USER_API = process.env.USER_API
 
 const profile = () => {
     return fetch(`${USER_API}/profile`, {
