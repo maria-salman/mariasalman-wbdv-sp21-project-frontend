@@ -35,6 +35,9 @@ const register = (credentials) => {
 
 const logout = () => {}
 
-export default {
+
+const api {
     register, login, logout, profile
 }
+
+export default api
