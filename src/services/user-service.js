@@ -36,7 +36,7 @@ const register = (credentials) => {
 const logout = () => {}
 
 
-const api {
+const api = {
     register, login, logout, profile
 }
 
