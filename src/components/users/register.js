@@ -17,27 +17,58 @@ const Register = () => {
             })
     }
     return(
-        <div>
+        <div className= "container">
             <h1>Register</h1>
-            <input
-                value={credentials.username}
-                onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
-                className="form-control"
-                placeholder="username"/>
-            <input
-                value={credentials.password}
-                onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
-                className="form-control"
-                placeholder="password"/>
-            <input
-                className="form-control"
-                placeholder="validate password"/>
-            <button onClick={register} className="btn btn-primary">
-                Register
-            </button>
-            <Link to="/login">
-                Login
-            </Link>
+            <div className="form-group row">
+                <label htmlFor="username"
+                       className="col-sm-2 col-form-label">
+                    Username </label>
+                <div className= "col-sm-10">
+                    <input
+                        value={credentials.username}
+                        id = "username"
+                        onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
+                        className="form-control"
+                        placeholder="Create username"/>
+                </div>
+            </div>
+            <div className="form-group row">
+                <label htmlFor="password"
+                       className="col-sm-2 col-form-label">
+                    Password </label>
+                <div className= "col-sm-10">
+                    <input
+                        value={credentials.password}
+                        id = "password"
+                        onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
+                        className="form-control"
+                        placeholder="Create password"/>
+                </div>
+            </div>
+            <div className="form-group row">
+                <label htmlFor="validatePassword"
+                       className="col-sm-2 col-form-label">
+                    Confirm Password </label>
+                <div className= "col-sm-10">
+                    <input
+                        className="form-control"
+                        id = "validatePassword"
+                        placeholder="Validate password"/>
+                </div>
+            </div>
+            <div className="form-group row">
+                <label className="col-sm-2 col-form-label"></label>
+                <div className="col-sm-10">
+                    <button onClick={register} className="btn btn-primary">
+                        Register
+                    </button>
+                    <div className="float-right">
+                        <Link to="/login">
+                            Login
+                        </Link>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
