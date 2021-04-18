@@ -6,16 +6,19 @@ const Login = () => {
     const [credentials, setCredentials] = useState({username: '', password: ''})
     const history = useHistory()
     const login = () => {
-        userService.login(credentials)
-            .then((user) => {
-                console.log(user)
-                if(user === 0) {
-                    alert("login failed, try again")
-                } else {
-                    history.push("/profile")
-                }
-            })
-        history.push("/profile")
+        if (credentials.password === '' || credentials.username === '') {
+            alert("All fields required.")
+        } else {
+            userService.login(credentials)
+                .then((user) => {
+                    console.log(user)
+                    if (user === 0) {
+                        alert("Login failed, try again.")
+                    } else {
+                        history.push("/profile")
+                    }
+                })
+        }
     }
 
     return(
