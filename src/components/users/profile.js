@@ -17,7 +17,6 @@ const Profile = () => {
     return(
         <div>
             <h1>Profile</h1>
-            {JSON.stringify(currentUser)}
             <h3>Welcome {currentUser.username}</h3>
             <button
                 onClick={logout}

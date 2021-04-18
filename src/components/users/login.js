@@ -13,7 +13,7 @@ const Login = () => {
                 .then((user) => {
                     console.log(user)
                     if (user === 0) {
-                        alert("Login failed, try again.")
+                        alert("Login failed, try again. Did you misspell your username or password?")
                     } else {
                         history.push("/profile")
                     }

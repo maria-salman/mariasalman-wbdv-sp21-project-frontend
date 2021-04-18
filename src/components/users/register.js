@@ -3,18 +3,23 @@ import {Link, useHistory} from 'react-router-dom'
 import userService from '../../services/user-service'
 
 const Register = () => {
-    const [credentials, setCredentials] = useState({username: '', password: ''})
+    const [credentials, setCredentials] = useState({username: '', password: '', email: ''})
     const history = useHistory()
     const register = () => {
+        if (credentials.password === '' || credentials.username === '' || credentials.email === '') {
+            alert("All fields required.")
+        }
+        else {
         userService.register(credentials)
             .then((user) => {
                 console.log(user)
                 if(user === 0) {
-                    alert("username already taken")
+                    alert("Username already taken")
                 } else {
                     history.push("/profile")
                 }
             })
+        }
     }
     return(
         <div className= "container">
@@ -46,14 +51,31 @@ const Register = () => {
                 </div>
             </div>
             <div className="form-group row">
-                <label htmlFor="validatePassword"
+                <label htmlFor="email"
                        className="col-sm-2 col-form-label">
-                    Confirm Password </label>
+                    Email </label>
                 <div className= "col-sm-10">
                     <input
+                        value={credentials.email}
+                        id = "email"
+                        onChange={(e) => {setCredentials({...credentials, email: e.target.value})}}
                         className="form-control"
-                        id = "validatePassword"
-                        placeholder="Validate password"/>
+                        placeholder="email_address@example.com"/>
+                </div>
+            </div>
+            <div className="form-group row">
+                <label htmlFor="pickRole"
+                       className="col-sm-2 col-form-label">
+                    Choose your role </label>
+                <div className= "col-sm-10">
+                    <select className="custom-select" name="pickRole" id="pickRole">
+                        <option value="ADVENTURER">
+                            Adventurer
+                        </option>
+                        <option value="FOLLOWER">
+                            Follower
+                        </option>
+                    </select>
                 </div>
             </div>
             <div className="form-group row">
