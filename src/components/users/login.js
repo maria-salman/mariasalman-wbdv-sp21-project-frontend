@@ -37,7 +37,7 @@ const Login = () => {
                 <label htmlFor='password' className='col-sm-2 col-form-label'>Password</label>
                 <div className = "col-sm-10">
                     <input
-                        className = "orm-control"
+                        className = "form-control"
                         value={credentials.password}
                         onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
                         className="form-control"

@@ -2,6 +2,7 @@ import React from "react";
 
 const Register = () => {
 
+
     return (
         <div className="container">
             <h1>User Registration</h1>

@@ -1,11 +1,13 @@
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Link, Route} from "react-router-dom";
 import Home from "./components/home";
 import Search from "./components/search";
 import Details from "./components/details";
 import Login from "./components/users/login";
 import Register from "./components/users/register";
 import Profile from "./components/users/profile";
+import SearchApi from "./components/users/search-api";
 import './App.css';
+
 
 function App() {
     return (
@@ -25,6 +27,9 @@ function App() {
                 </Route>
                 <Route path={["/profile", "/profile/:profileId"]} exact={true}>
                     <Profile/>
+                </Route>
+                <Route path={["/search-api", "/search-api/"]} exact={true}>
+                    <SearchApi/>
                 </Route>
                 <Route path={["/register"]} exact={true}>
                     <Register/>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>My google map</title>
+</head>
+<body>
+<div>
+Search
+</div>
+<script>
+let map;
+
+function initMap() {
+const localContextMapView = new google.maps.localContext.LocalContextMapView({
+element: document.getElementById("map"),
+placeTypePreferences: [
+{ type: "restaurant" },
+{ type: "tourist_attraction" },
+],
+maxPlaceCount: 12,
+});
+map = localContextMapView.map;
+map.setOptions({
+center: { lat: 51.507307, lng: -0.08114 },
+zoom: 14,
+});
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=localContext&v=beta&key=API_KEY&callback=initMap"
+        defer>
+</script>
+</body>
+</html>

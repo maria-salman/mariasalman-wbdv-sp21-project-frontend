@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import './home.css'
 
 const Home = () => {
+
     return (
         <div>
             <h2>Home Screen</h2>
@@ -24,6 +25,9 @@ const Home = () => {
             <br/>
             <Link to="/details">
                 Details
+            </Link>
+            <Link to="/search-api">
+                search_Api
             </Link>
         </div>
     )
