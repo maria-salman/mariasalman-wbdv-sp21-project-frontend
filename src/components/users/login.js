@@ -49,27 +49,20 @@ const Login = () => {
             <div className="form-group row">
                     <label className="col-sm-2 col-form-label"></label>
                     <div className="col-sm-10">
-                        <button className="btn btn-primary btn-block"
-                            onClick={login}>
-                            Login
+                        <form>
+                            <button className="btn btn-primary btn-block"
+                                onClick={login}>
+                                Login
+                                </button>
+                            <button className="btn btn-success btn-block"
+                                    formAction="/register">
+                                Sign Up
                             </button>
-                        <button className="btn btn-danger btn-block"
-                            formAction="/home">
-                            Cancel
+                            <button className="btn btn-danger btn-block"
+                                formAction="/">
+                                Cancel
                             </button>
-                        <div className="row">
-                            <div className="col-6">
-                                <Link to={"/"}>
-                                    Forgot Password?
-                                </Link>
-                            </div>
-                            <div className="col-6">
-                                <Link to="/register"
-                                    className="float-right">
-                                    Sign up
-                                </Link>
-                            </div>
-                        </div>
+                        </form>
                     </div>
             </div>
         </div>
