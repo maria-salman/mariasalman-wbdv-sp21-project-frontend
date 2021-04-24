@@ -1,0 +1,25 @@
+body{
+    background-image: url('https://www.qualtrics.com/m/assets/blog/wp-content/uploads/2018/08/shutterstock_1068141515.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-color: transparent;
+    height: 100vh;
+    padding:0;
+    margin:0;
+
+}
+
+h1 {
+    color: darkslategray;
+}
+
+.home-links {
+    color:white;
+    font-size: 25px;
+}
+
+.user-list {
+    height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+}

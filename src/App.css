@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.user-name-link {
+  color: white;
+}
+
+.cancel-link {
+  color: white;
+  text-decoration: none;
+}
+
+.bookmark-link {
+  color: black;
+}
+
+.account-headers {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.edit-profile-btn {
+  height: 35px;
+  padding: 5px;
+  white-space: nowrap;
+}
+
+.footer{
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(235, 195, 64);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

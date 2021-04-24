@@ -1,43 +1,70 @@
-//const USER_API = "http://localhost:4000/api/users";
+//const USER_API = "http://localhost:4000/api";
 const USER_API = process.env.REACT_APP_USER_API
 
-const profile = () => {
-    return fetch(`${USER_API}/profile`, {
-        method: "POST",
-        credentials: "include"
-    }).then(response => response.json())
-}
-
-
-const login = (credentials) => {
-    return fetch(`${USER_API}/login`, {
-        method: "POST",
-        credentials: "include",
-        body: JSON.stringify(credentials),
-        headers: {
-            'content-type': 'application/json'
-        }
-    })
-        .then(response => response.json())
-}
-
-const register = (credentials) => {
+export const register = (username, password, fullName, email, role) => {
     return fetch(`${USER_API}/register`, {
-        method: "POST",
-        credentials: "include",
-        body: JSON.stringify(credentials),
+        method: 'POST',
         headers: {
             'content-type': 'application/json'
-        }
-    })
-        .then(response => response.json())
+        },
+        credentials: 'include',
+        body: JSON.stringify({username, password, fullName, email, role})
+    }).then(response => response.json());
 }
 
-const logout = () => {}
+export const login = (username, password) => {
+    return fetch(`${USER_API}/login`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({username, password})
+    }).then(response => response.json());
+}
 
+export const updateUser = (body) => {
+    return fetch(`${USER_API}/profile/update`, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify(body)
+    }).then(response => response.json());
+}
+
+export const profile = () => {
+    return fetch(`${USER_API}/profile`, {
+        credentials: 'include'
+    }).then(response => {
+        if (response.status === 200) {
+            return response.json()
+        } else {
+            return undefined
+        }
+    })
+}
+
+export const logout = () => {
+    return fetch(`${USER_API}/logout`, {
+        method: 'POST',
+        credentials: 'include'
+    });
+}
+
+export const findAllUsers = () => {
+     return fetch(`${USER_API}/users`)
+        .then(response => response.json())
+}
 
 const api = {
-    register, login, logout, profile
+    login,
+    register,
+    logout,
+    profile,
+    updateUser,
+    findAllUsers
 }
 
-export default api
+export default api;
