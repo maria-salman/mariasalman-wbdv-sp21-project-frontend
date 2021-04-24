@@ -1,4 +1,5 @@
-const LOCAL_API = 'http://localhost:4000/api';
+// const LOCAL_API = 'http://localhost:4000/api';
+const LOCAL_API = process.env.REACT_APP_USER_API
 
 export const addBookmark = (bookId, userId, username, bookTitle) => {
     return fetch(`${LOCAL_API}/bookmarks/add`, {
@@ -30,11 +31,6 @@ export const IsBookmark = (bookId, userId) => {
         .then(res => res.json())
 }
 
-export const getBookmarksForUsername = (username) => {
-    return fetch(`${LOCAL_API}/bookmarks/username/${username}`)
-        .then(res => res.json())
-}
-
 export const getAllBookmarks = () => {
     return fetch(`${LOCAL_API}/bookmarks/all`)
         .then(res => res.json())
@@ -45,7 +41,6 @@ const api = {
     addBookmark,
     removeBookmark,
     getBookmarksForUser,
-    getBookmarksForUsername,
     getAllBookmarks
 }
 

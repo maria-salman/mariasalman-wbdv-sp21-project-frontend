@@ -1,4 +1,5 @@
-const LOCAL_API = 'http://localhost:4000/api';
+//const LOCAL_API = 'http://localhost:4000/api';
+const LOCAL_API = process.env.REACT_APP_USER_API
 
 export const addRecommendation = (bookId, userId, username, bookTitle) => {
     return fetch(`${LOCAL_API}/recommendations/add`, {
@@ -30,11 +31,6 @@ export const IsRecommendation = (bookId, userId) => {
         .then(res => res.json())
 }
 
-export const getRecommendationsForUsername = (username) => {
-    return fetch(`${LOCAL_API}/recommendations/username/${username}`)
-        .then(res => res.json())
-}
-
 export const getAllRecommendations = () => {
     return fetch(`${LOCAL_API}/recommendations/all`)
         .then(res => res.json())
@@ -45,7 +41,6 @@ const api = {
     removeRecommendation,
     getRecommendationsForUser,
     IsRecommendation,
-    getRecommendationsForUsername,
     getAllRecommendations
 }
 

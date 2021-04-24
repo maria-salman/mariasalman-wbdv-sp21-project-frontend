@@ -58,13 +58,19 @@ export const findAllUsers = () => {
         .then(response => response.json())
 }
 
+export const findUserById = (uid) => {
+    return fetch(`${USER_API}/users/${uid}`)
+        .then(response => response.json())
+}
+
 const api = {
     login,
     register,
     logout,
     profile,
     updateUser,
-    findAllUsers
+    findAllUsers,
+    findUserById
 }
 
 export default api;
