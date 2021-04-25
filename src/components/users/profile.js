@@ -26,7 +26,6 @@ const Profile = ({user, setUser}) => {
     }
 
     const cancel = () => {
-        userService.profile().then(res => setUser(res));
         setEditing(false);
     }
 
