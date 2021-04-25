@@ -9,8 +9,8 @@ import Details from './components/details/details';
 import Search from './components/search/search';
 import userService from './services/user-service';
 import UserPublicProfile from './components/util/user-public-profile';
-// import Footer from './components/util/footer'
 import './components/util/navbar.css'
+import ProfileList from "./components/users/profile-list";
 
 function App() {
     const [user, setUser] = useState(undefined);
@@ -51,6 +51,12 @@ function App() {
                             <Link className='nav-item nav-link'
                                   to='/profile'>
                                 Profile
+                            </Link>
+                        </div>
+                        <div className='navbar-nav'>
+                            <Link className='nav-item nav-link'
+                                  to='/profile-list'>
+                                Users
                             </Link>
                         </div>
                     </div>
@@ -106,16 +112,18 @@ function App() {
                              setUser={setUser}/>
                 </Route>
                 <Route exact={true}
+                       path={['/profile-list']}>
+                    <ProfileList/>
+                </Route>
+                <Route exact={true}
                        path={['/search', '/search/:searchItem']}
                        component={Search}
                 />
                 <Route exact={true}
                        path={['/profile/:uid']}
                        component={UserPublicProfile}/>
-                {/*<Footer/>*/}
             </BrowserRouter>
         </div>
-
     )
 }
 

@@ -19,7 +19,38 @@ h1 {
 }
 
 .user-list {
-    height: 400px;
+    height: 225px;
+    background-color: beige;
     overflow: hidden;
     overflow-y: scroll;
+}
+
+.user-links {
+    color:black
+}
+
+.home-page-users {
+    column-gap: 40px;
+}
+
+.home-page-list {
+    background-color: beige;
+}
+
+.user-name-link-background {
+    color: white;
+    background-color: #b24040;
+}
+
+.author-list {
+    padding-left: 17px;
+    padding-right: 70px;
+}
+
+.bookmark-list-padding {
+    padding-bottom: 50px;
+}
+
+.bottom-padding {
+    padding-bottom: 50px;
 }

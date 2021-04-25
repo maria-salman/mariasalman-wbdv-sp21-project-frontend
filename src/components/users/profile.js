@@ -48,6 +48,7 @@ const Profile = ({user, setUser}) => {
 
     return (
         <div className='container-fluid'>
+            <br/>
             {
                 editing && user &&
                 <div>

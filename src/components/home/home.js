@@ -5,12 +5,18 @@ import bookmarkService from '../../services/bookmark-service'
 import './home.css'
 
 const Home = ({user}) => {
-    const [users, setUsers] = useState([])
+    const [readers, setReaders] = useState([])
+    const [authors, setAuthors] = useState([])
     const [bookmarks, setBookmarks] = useState([])
 
     useEffect(() => {
-        userService.findAllUsers()
-            .then(res => setUsers(res));
+        userService.findAllAuthors()
+            .then(res => setAuthors(res));
+    }, [])
+
+    useEffect(() => {
+        userService.findAllReaders()
+            .then(res => setReaders(res));
     }, [])
 
     useEffect(() => {
@@ -18,10 +24,9 @@ const Home = ({user}) => {
             .then(res => setBookmarks(res));
     }, [])
 
-
     return (
-
         <div>
+            <br/>
             <h1>Home</h1>
             <Link to="/register"
                   className="home-links">
@@ -45,26 +50,56 @@ const Home = ({user}) => {
             <br/>
             <br/>
             <br/>
-            <div>
-                <h3 className="user-name-link">Check out our authors and readers!</h3>
-                <ul className='list-group user-list'>
+            <div className="row">
+                <h4 className="col-sm home-page-users">
+                    <span className="user-name-link-background">
+                        Check out our author profiles
+                    </span>
+                </h4>
+                <h4 className="col-sm home-page-users">
+                    <span className="user-name-link-background">
+                        Explore our reader profiles
+                    </span>
+                </h4>
+            </div>
+            <div className="row home-page-users author-list">
+                <ul className='list-group user-list col-sm home-page-list author-list'>
                     {
-                        users.map(user =>
-                            <li className='list-group-item col-sm'
-                                key={user._id}>
+                        authors.map(author =>
+                            <li className='list-group-item col-sm home-page-list'
+                                key={author._id}>
                                 <Link
-                                    to={`/profile/${user._id}`}>
-                                    {user.username}
+                                    to={`/profile/${author._id}`}
+                                    className="user-links">
+                                    {author.username}
+                                </Link>
+                            </li>)
+                    }
+                </ul>
+
+                <ul className='list-group user-list col-sm'>
+                    {
+                        readers.map(reader =>
+                            <li className='list-group-item col-sm'
+                                key={reader._id}>
+                                <Link
+                                    to={`/profile/${reader._id}`}
+                                    className="user-links">
+                                    {reader.username}
                                 </Link>
                             </li>)
                     }
                 </ul>
             </div>
-
+            <br/>
             <br/>
             { user &&
-                <div>
-                    <h3 className="user-name-link">Here's what people are bookmarking!</h3>
+                <div className="bottom-padding">
+                    <h4>
+                        <span className="user-name-link-background">
+                        Here's what people are bookmarking.
+                        </span>
+                    </h4>
                     <ul className='list-group user-list'>
                         {
                             bookmarks.map(bookmark =>
@@ -74,9 +109,20 @@ const Home = ({user}) => {
                                         to={`/details/${bookmark.bookId}`}>
                                         {bookmark.bookTitle}
                                     </Link>
-                                </li>)
+                                </li>
+                            )
                         }
                     </ul>
+                </div>
+            }
+            {
+                !user &&
+                <div>
+                    <h4>
+                        <span className="user-name-link-background">
+                            Create an account or log in to see what our users are bookmarking.
+                        </span>
+                    </h4>
                 </div>
             }
         </div>

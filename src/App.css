@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-bottom: 100px;
 }
 
 .App-logo {
@@ -59,14 +60,4 @@
   height: 35px;
   padding: 5px;
   white-space: nowrap;
-}
-
-.footer{
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: indianred;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
 }

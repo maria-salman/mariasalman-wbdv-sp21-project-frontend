@@ -28,6 +28,7 @@ const ProfileDetails = () => {
 
     return (
         <div>
+            <br/>
             {loaded && user && user.role === "READER" &&
                 <div>
                     <h1>{user.username}'s Profile</h1>
