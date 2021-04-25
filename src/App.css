@@ -47,10 +47,6 @@
   text-decoration: none;
 }
 
-.bookmark-link {
-  color: black;
-}
-
 .account-headers {
   padding-top: 20px;
   padding-bottom: 10px;
@@ -64,4 +60,8 @@
 
 .bottom-padding {
   padding-bottom: 50px;
+}
+
+.bookmark-link {
+  color: black
 }

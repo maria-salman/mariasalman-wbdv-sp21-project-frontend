@@ -50,7 +50,7 @@ const Home = ({user}) => {
             <br/>
             <br/>
             <br/>
-            <div className="row">
+            <div className="row author-reader-list home-page-users">
                 <h4 className="col-sm home-page-users">
                     <span className="user-name-link-background">
                         Check out our author profiles
@@ -62,20 +62,20 @@ const Home = ({user}) => {
                     </span>
                 </h4>
             </div>
-            <div className="row home-page-users author-list">
-                <ul className='list-group user-list col-sm home-page-list author-list'>
-                    {
-                        authors.map(author =>
-                            <li className='list-group-item col-sm home-page-list'
-                                key={author._id}>
-                                <Link
-                                    to={`/profile/${author._id}`}
-                                    className="user-links">
-                                    {author.username}
-                                </Link>
-                            </li>)
-                    }
-                </ul>
+            <div className="row home-page-users author-reader-list">
+                    <ul className='list-group user-list col-sm'>
+                        {
+                            authors.map(author =>
+                                <li className='list-group-item col-sm'
+                                    key={author._id}>
+                                    <Link
+                                        to={`/profile/${author._id}`}
+                                        className="user-links">
+                                        {author.username}
+                                    </Link>
+                                </li>)
+                        }
+                    </ul>
 
                 <ul className='list-group user-list col-sm'>
                     {
@@ -100,18 +100,17 @@ const Home = ({user}) => {
                         Here's what people are bookmarking.
                         </span>
                     </h4>
-                    <ul className='user-list homepage-icons list-group'>
+                    <ul className='homepage-icons'>
                         {
                             bookmarks.map(bookmark =>
                                 <li
                                     key={bookmark._id}>
                                     <Link
                                         to={`/details/${bookmark.bookId}`}
-                                        className="bookmark-link">
-                                        {/*{bookmark.bookTitle}*/}
+                                        className="homepage-icons-item">
                                         <img alt={``}
                                              src={`http://books.google.com/books/content?id=${bookmark.bookId}&printsec=frontcover&img=1&zoom=5&source=gbs_api`}
-                                             height="205px" width="180px"
+                                             height="220px" width="193px"
                                         />
                                     </Link>
                                 </li>

@@ -147,7 +147,7 @@ const Details = ({user}) => {
                         <li className='list-group-item'>
                             <img alt={`${bookDetails.volumeInfo.title} book`}
                                  src={`http://books.google.com/books/content?id=${bookDetails.id}&printsec=frontcover&img=1&zoom=5&source=gbs_api`}
-                                 height="275px" width="175px"
+                                 height="275px" width="185px"
                             />
                         </li>
                         <li className='list-group-item'>Title: {bookDetails.volumeInfo.title}</li>
