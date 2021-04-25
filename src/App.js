@@ -12,8 +12,11 @@ import UserPublicProfile from './components/users/user-public-profile';
 import './components/util/navbar.css'
 import ProfileList from "./components/users/profile-list";
 
+
 function App() {
     const [user, setUser] = useState(undefined);
+    let cors = require('cors')
+    App.use(cors())
 
     const logout = () => {
         return userService.logout()
