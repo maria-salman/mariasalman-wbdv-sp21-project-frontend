@@ -4,3 +4,7 @@ ul {
     border: 1px solid beige;
     border-radius: 5px;
 }
+
+.bottom-padding {
+    padding-bottom: 50px;
+}

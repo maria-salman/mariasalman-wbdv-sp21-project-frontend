@@ -13,18 +13,19 @@ const ProfileList = () => {
 
     return (
 
-        <div className="bottom-padding">
+        <div className="bottom-padding col-sm-8">
             <br/>
             <h1>Users</h1>
             <br/>
-            <div>
-                <ul className='list-group'>
+            <div className="col-sm-8">
+                <ul className='list-group col-sm-8'>
                     {
                         users.map(user =>
-                            <li className='list-group-item col-sm'
+                            <li className='list-group-item col-sm-12'
                                 key={user._id}>
                                 <Link
-                                    to={`/profile/${user._id}`}>
+                                    to={`/profile/${user._id}`}
+                                    className="bookmark-link">
                                     {user.username}
                                 </Link>
                             </li>)

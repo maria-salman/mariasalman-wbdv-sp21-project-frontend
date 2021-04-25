@@ -34,42 +34,50 @@ const ProfileDetails = () => {
                     <h1>{user.username}'s Profile</h1>
                     <br/>
                     <h3>Bookmarks</h3>
+                    <div className="bottom-padding">
                     <ul className='list-group'>
                         {bookmarks.map(bookmark =>
                             <Link key={bookmark._id}
-                                  className='list-group-item'
+                                  className='list-group-item bookmark-link'
                                   to={`/details/${bookmark.bookId}`}>
                                 {bookmark.bookTitle}
                             </Link>
                         )}
                     </ul>
+                    </div>
                 </div>
             }
             {loaded && user && user.role === "AUTHOR" &&
             <div>
                 <h1>{user.username}'s Profile</h1>
                 <br/>
+                <div>
                 <h3>Authored Books</h3>
+                <div>
                 <ul className='list-group'>
                     {bookmarks.map(bookmark =>
                         <Link key={bookmark._id}
-                              className='list-group-item'
+                              className='list-group-item bookmark-link'
                               to={`/details/${bookmark.bookId}`}>
                             {bookmark.bookTitle}
                         </Link>
                     )}
                 </ul>
+                </div>
                 <br/>
                 <h3>Recommendations</h3>
+                <div className="bottom-padding">
                 <ul className='list-group'>
                     {recommendations.map(recommendation =>
                         <Link key={recommendation._id}
-                              className='list-group-item'
+                              className='list-group-item bookmark-link'
                               to={`/details/${recommendation.bookId}`}>
                             {recommendation.bookTitle}
                         </Link>
                     )}
                 </ul>
+                </div>
+                </div>
             </div>
             }
         </div>

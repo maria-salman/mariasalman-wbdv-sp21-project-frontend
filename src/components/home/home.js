@@ -106,7 +106,8 @@ const Home = ({user}) => {
                                 <li className='list-group-item col-sm'
                                     key={bookmark._id}>
                                     <Link
-                                        to={`/details/${bookmark.bookId}`}>
+                                        to={`/details/${bookmark.bookId}`}
+                                        className="bookmark-link">
                                         {bookmark.bookTitle}
                                     </Link>
                                 </li>

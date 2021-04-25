@@ -144,23 +144,25 @@ const Details = ({user}) => {
                     }
                 </div>
                 <br/>
-                <ul className='list-group'>
-                    <li className='list-group-item'>
-                        <img alt={`${bookDetails.volumeInfo.title} book`}
-                             src={`http://books.google.com/books/content?id=${bookDetails.id}&printsec=frontcover&img=1&zoom=5&source=gbs_api`}
-                             height="275px" width="175px"
-                        />
-                    </li>
-                    <li className='list-group-item'>Title: {bookDetails.volumeInfo.title}</li>
-                    <li className='list-group-item'>Author(s):  {bookDetails.volumeInfo.authors}</li>
-                    <li className='list-group-item'>Description: {bookDetails.volumeInfo.description}</li>
-                    <li className='list-group-item'>Categories: {bookDetails.volumeInfo.categories}</li>
-                    <li className='list-group-item'>Average Rating: {bookDetails.volumeInfo.averageRating}</li>
-                    <li className='list-group-item'>Page Count: {bookDetails.volumeInfo.pageCount}</li>
-                    <li className='list-group-item'>Publisher: {bookDetails.volumeInfo.publisher}
-                        <p>Published Date: {bookDetails.volumeInfo.publishedDate}</p>
-                    </li>
-                </ul>
+                <div className="bottom-padding">
+                    <ul className='list-group'>
+                        <li className='list-group-item'>
+                            <img alt={`${bookDetails.volumeInfo.title} book`}
+                                 src={`http://books.google.com/books/content?id=${bookDetails.id}&printsec=frontcover&img=1&zoom=5&source=gbs_api`}
+                                 height="275px" width="175px"
+                            />
+                        </li>
+                        <li className='list-group-item'>Title: {bookDetails.volumeInfo.title}</li>
+                        <li className='list-group-item'>Author(s):  {bookDetails.volumeInfo.authors}</li>
+                        <li className='list-group-item'>Description: {bookDetails.volumeInfo.description}</li>
+                        <li className='list-group-item'>Categories: {bookDetails.volumeInfo.categories}</li>
+                        <li className='list-group-item'>Average Rating: {bookDetails.volumeInfo.averageRating}</li>
+                        <li className='list-group-item'>Page Count: {bookDetails.volumeInfo.pageCount}</li>
+                        <li className='list-group-item'>Publisher: {bookDetails.volumeInfo.publisher}
+                            <p>Published Date: {bookDetails.volumeInfo.publishedDate}</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
             }
         </div>
