@@ -137,7 +137,7 @@ const Profile = ({user, setUser}) => {
             }
             {
                 !editing && user && user.role === "READER" &&
-                <div>
+                <div className="bottom-padding">
                     <h4 className="account-headers">
                         Bookmarks
                     </h4>
@@ -171,17 +171,17 @@ const Profile = ({user, setUser}) => {
             }
             <br/>
             { !editing && user && user.role === "AUTHOR" &&
-                <div>
+                <div className="bottom-padding">
                     <h4 className="account-headers">
                         Recommendation List
                     </h4>
                         <ul className='list-group bookmark-link'>
                             {recommendations.map(recommendation =>
-                        <Link key={recommendation._id}
-                            className='list-group-item bookmark-link'
-                            to={`/details/${recommendation.bookId}`}>
-                            {recommendation.bookTitle}
-                        </Link>
+                            <Link key={recommendation._id}
+                                className='list-group-item bookmark-link'
+                                to={`/details/${recommendation.bookId}`}>
+                                {recommendation.bookTitle}
+                            </Link>
                              )}
                         </ul>
                 </div>
