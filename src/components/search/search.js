@@ -46,7 +46,7 @@ const Search = () => {
                 <div className="col-sm-6 row">
                     <input
                         type="search"
-                        className="form-control col-10"
+                        className="form-control col-sm-10"
                         placeholder="Book Title"
                         value={searchTerm}
                         onChange={onInputChange}
@@ -56,6 +56,9 @@ const Search = () => {
                             onClick={updateSearch}>
                         Search
                     </button>
+                    <h6 className="details-text col-sm-10">
+                        Click on "More Details" or the book icon to learn more!
+                    </h6>
                 </div>
                 <br/>
             </form>
@@ -67,16 +70,21 @@ const Search = () => {
                                 <li key={index}>
                                     <div>
                                         <br/>
-                                        <img alt={`${book.volumeInfo.title} book`}
-                                             src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=5&source=gbs_api`} />
+                                        <Link to={`/details/${book.id}`}>
+                                            <img alt={`${book.volumeInfo.title} book`}
+                                                 src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=5&source=gbs_api`} />
+                                        </Link>
                                         <div>
                                             <br/>
                                             <h4>{book.volumeInfo.title}</h4>
                                             <p>Author(s): { bookAuthors(book.volumeInfo.authors) }</p>
                                             <p>Published Date: {book.volumeInfo.publishedDate}</p>
-                                            <Link to={`/details/${book.id}`}>
-                                                More Details
-                                            </Link>
+                                            <button className="btn btn-primary">
+                                                <Link to={`/details/${book.id}`}
+                                                    className="user-name-link">
+                                                    More Details
+                                                </Link>
+                                            </button>
                                         </div>
                                     </div>
                                     <hr/>

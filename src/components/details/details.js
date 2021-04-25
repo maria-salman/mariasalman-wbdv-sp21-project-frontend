@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useHistory, useParams} from 'react-router-dom';
+import {Link, useHistory, useParams} from 'react-router-dom';
 import bookService from '../../services/book-service'
 import bookmarkService from '../../services/bookmark-service'
 import recommendationService from '../../services/recommendation-service'
@@ -11,6 +11,7 @@ const Details = ({user}) => {
     const [bookLoaded, setBookLoaded] = useState(false)
     const [bookmark, setBookmark] = useState(false);
     const [recommendation, setRecommendation] = useState(false);
+    const [users, setUsers] = useState([])
     const history = useHistory();
 
     useEffect(() => {
@@ -29,6 +30,11 @@ const Details = ({user}) => {
                     .then(res => setRecommendation(res))
             }
     }, [bookId, user])
+
+    useEffect(() => {
+        bookmarkService.getAllUsersForBookmark(bookId)
+            .then(res => setUsers(res));
+    }, [bookId])
 
     const addBookmark = () => {
         bookmarkService.addBookmark(bookId, user._id, user.username, bookDetails.volumeInfo.title)
@@ -163,6 +169,22 @@ const Details = ({user}) => {
                 </div>
             </div>
             }
+            <div className="bottom-padding">
+                <h4 className="title-color">Check out who has bookmarked this!</h4>
+                <ul className='list-group'>
+                    {
+                        users.map(user =>
+                            <li className='list-group-item col-sm'
+                                key={user.userId}>
+                                <Link
+                                    to={`/profile/${user.userId}`}
+                                    className="user-links">
+                                    {user.username}
+                                </Link>
+                            </li>)
+                    }
+                </ul>
+            </div>
         </div>
     )
 }

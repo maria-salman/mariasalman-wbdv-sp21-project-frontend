@@ -108,7 +108,7 @@ const Register = ({user}) => {
                     <div className='alert alert-warning'>
                         You're already logged in
                     </div>
-                    <button className='btn btn-outline-secondary'
+                    <button className='btn btn-secondary'
                             onClick={() => history.goBack()}>
                         Go Back
                     </button>

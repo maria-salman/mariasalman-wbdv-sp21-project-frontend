@@ -36,12 +36,18 @@ export const getAllBookmarks = () => {
         .then(res => res.json())
 }
 
+export const getAllUsersForBookmark = (bookId) => {
+    return fetch(`${LOCAL_API}/bookmarks/all/${bookId}`)
+        .then(res => res.json())
+}
+
 const api = {
     IsBookmark,
     addBookmark,
     removeBookmark,
     getBookmarksForUser,
-    getAllBookmarks
+    getAllBookmarks,
+    getAllUsersForBookmark
 }
 
 export default api
