@@ -71,7 +71,7 @@ const Details = ({user}) => {
                     {
                     user && user.role === "READER" &&
                     <div className='float-right'>
-                        <Link className='fas fa-book' to='/profile'>See my bookmarks</Link>
+                        <Link className='fas fa-book' to='/profile'>My bookshelf</Link>
                         {
                             !bookmark &&
                             <button className='btn btn-clear'
@@ -95,7 +95,7 @@ const Details = ({user}) => {
                     {
                     user && user.role === "AUTHOR" &&
                     <div className='float-right'>
-                        <Link className='fas fa-book' to='/profile'>See my lists</Link>
+                        <Link className='fas fa-book' to='/profile'>My library</Link>
                         {
                             !bookmark &&
                             <button className='btn btn-clear'

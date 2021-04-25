@@ -13,12 +13,16 @@ const Register = ({user}) => {
     const register = () => {
         if (username === '' || password === '' || fullName === '' || email === '') {
             alert('All fields required.');
-        } else {
+        } else if (role === 'user') {
+            alert('Must choose a role')
+        }
+        else {
             userService.register(username, password, fullName, email, role)
                 .then(() => history.push('/login'))
-                .catch(() => alert('Username taken. Try again.'));
+                .catch(() => alert('Error. Possible duplicated username. Try again.'));
         }
     }
+
     return (
         <div className='container-fluid'>
             <h1>Register</h1>
@@ -71,11 +75,13 @@ const Register = ({user}) => {
                 <div className='form-group row col-sm-10'>
                     <label htmlFor='role' className='col-sm-2 col-form-label'>
                         Role</label>
-                    <select className='col-sm-10 form-control'
-                            value={role}
+                    <select required
+                            className='col-sm-10 form-control'
+                            defaultValue=""
                             onChange={(e) =>
                                 setRole(e.target.value)}>
-                        <option value={'READER'}>Reader </option>
+                        <option value="" disabled>Choose role here</option>
+                        <option value={'READER'} >Reader</option>
                         <option value={'AUTHOR'}>Author</option>
                     </select>
                 </div>
