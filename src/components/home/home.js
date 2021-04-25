@@ -100,15 +100,19 @@ const Home = ({user}) => {
                         Here's what people are bookmarking.
                         </span>
                     </h4>
-                    <ul className='list-group user-list'>
+                    <ul className='user-list homepage-icons list-group'>
                         {
                             bookmarks.map(bookmark =>
-                                <li className='list-group-item col-sm'
+                                <li
                                     key={bookmark._id}>
                                     <Link
                                         to={`/details/${bookmark.bookId}`}
                                         className="bookmark-link">
-                                        {bookmark.bookTitle}
+                                        {/*{bookmark.bookTitle}*/}
+                                        <img alt={``}
+                                             src={`http://books.google.com/books/content?id=${bookmark.bookId}&printsec=frontcover&img=1&zoom=5&source=gbs_api`}
+                                             height="205px" width="180px"
+                                        />
                                     </Link>
                                 </li>
                             )

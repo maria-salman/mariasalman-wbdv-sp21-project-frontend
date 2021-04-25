@@ -54,3 +54,7 @@ h1 {
 .bottom-padding {
     padding-bottom: 50px;
 }
+
+.homepage-icons {
+    display:flex;
+}

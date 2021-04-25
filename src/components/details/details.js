@@ -31,7 +31,6 @@ const Details = ({user}) => {
     }, [bookId, user])
 
     const addBookmark = () => {
-        console.log(bookDetails.volumeInfo.title)
         bookmarkService.addBookmark(bookId, user._id, user.username, bookDetails.volumeInfo.title)
             .then(() => setBookmark(true));
     }
@@ -42,7 +41,6 @@ const Details = ({user}) => {
     }
 
     const addRecommendation = () => {
-        console.log(bookDetails.volumeInfo.title)
         recommendationService.addRecommendation(bookId, user._id, user.username, bookDetails.volumeInfo.title)
             .then(() => setRecommendation(true));
     }
