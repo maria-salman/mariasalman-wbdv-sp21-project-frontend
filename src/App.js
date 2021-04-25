@@ -8,7 +8,7 @@ import Profile from './components/users/profile';
 import Details from './components/details/details';
 import Search from './components/search/search';
 import userService from './services/user-service';
-import UserPublicProfile from './components/util/user-public-profile';
+import UserPublicProfile from './components/users/user-public-profile';
 import './components/util/navbar.css'
 import ProfileList from "./components/users/profile-list";
 
