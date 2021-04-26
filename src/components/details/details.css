@@ -12,7 +12,7 @@
 }
 
 .bookmark {
-    font-size: 15px;
+    font-size: 20px;
     color: white;
 }
 
@@ -27,3 +27,16 @@
 .detail-fields {
     font-weight: bolder;
 }
+
+.library-padding {
+    padding-top: 7px;
+}
+
+.left-padding {
+    padding-left: 70px;
+}
+
+.left-reader-padding {
+    padding-left: 320px;
+}
+

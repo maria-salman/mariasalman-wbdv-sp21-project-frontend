@@ -73,16 +73,16 @@ const Details = ({user}) => {
             <div>
                 <br/>
                 <div className="row">
-                    <i className='fas fa-arrow-alt-circle-left fa-2x col-8' onClick={() => history.goBack()}/>
+                    <i className='fas fa-arrow-alt-circle-left fa-2x col-sm-6' onClick={() => history.goBack()}/>
                     {
                     user && user.role === "READER" &&
-                    <div className='float-right'>
-                        <Link className='fas fa-book' to='/profile'>My bookshelf</Link>
+                    <div>
+                        <Link className='fas fa-book bookmark float-right library-padding' to='/profile'>My bookshelf</Link>
                         {
                             !bookmark &&
                             <button className='btn btn-clear'
                                     onClick={addBookmark}>
-                                <i className='far fa-bookmark float-right row-cols-sm-4 bookmark'>
+                                <i className='far fa-bookmark float-right bookmark left-reader-padding'>
                                     Add Bookmark
                                 </i>
                                 </button>
@@ -91,7 +91,7 @@ const Details = ({user}) => {
                             bookmark &&
                             <button className='btn btn-clear'
                                                 onClick={removeBookmark}>
-                                <i className='fas fa-bookmark float-right row-cols-sm-4 bookmark'>
+                                <i className='fas fa-bookmark float-right bookmark left-reader-padding'>
                                     Remove Bookmark
                                 </i>
                                 </button>
@@ -100,13 +100,13 @@ const Details = ({user}) => {
                     }
                     {
                     user && user.role === "AUTHOR" &&
-                    <div className='float-right'>
-                        <Link className='fas fa-book' to='/profile'>My library</Link>
+                    <div>
+                        <Link className='fas fa-book bookmark float-right library-padding' to='/profile'>My library</Link>
                         {
                             !bookmark &&
                             <button className='btn btn-clear'
                                     onClick={addBookmark}>
-                                <i className='fas fa-pen float-right col bookmark'>
+                                <i className='fas fa-pen float-right bookmark left-padding'>
                                     Add to Author List
                                 </i>
                             </button>
@@ -115,7 +115,7 @@ const Details = ({user}) => {
                             bookmark &&
                             <button className='btn btn-clear'
                                     onClick={removeBookmark}>
-                                <i className='far fa-trash-alt float-right col bookmark'>
+                                <i className='far fa-trash-alt float-right bookmark'>
                                     Remove from Author List
                                 </i>
                             </button>
@@ -124,7 +124,7 @@ const Details = ({user}) => {
                             !recommendation &&
                             <button className='btn btn-clear'
                                     onClick={addRecommendation}>
-                                <i className='fas fa-plus-circle float-right col bookmark'>
+                                <i className='fas fa-plus-circle float-right bookmark'>
                                     Add to Recommendations
                                 </i>
                             </button>
@@ -133,7 +133,7 @@ const Details = ({user}) => {
                             recommendation &&
                             <button className='btn btn-clear'
                                     onClick={removeRecommendation}>
-                                <i className='fas fa-minus-circle float-right col bookmark'>
+                                <i className='fas fa-minus-circle float-right bookmark'>
                                     Remove Recommendation
                                 </i>
                             </button>
@@ -141,18 +141,18 @@ const Details = ({user}) => {
                     </div>
                     }
                     {
-                        !user &&
-                        <div>
-                            {
-                                !bookmark &&
-                                <button className='btn btn-clear'
-                                        onClick={onClickMustLogin}>
-                                    <i className='far fa-bookmark bookmark'>
-                                        Add Bookmark
-                                    </i>
-                                </button>
-                            }
-                        </div>
+                    !user &&
+                    <div className="col-sm-6">
+                        {
+                            !bookmark &&
+                            <button className='btn btn-clear float-right'
+                                    onClick={onClickMustLogin}>
+                                <i className='far fa-bookmark bookmark'>
+                                    Add Bookmark
+                                </i>
+                            </button>
+                        }
+                    </div>
                     }
                 </div>
                 <br/>
@@ -173,14 +173,12 @@ const Details = ({user}) => {
                             <p>{bookDetails.volumeInfo.authors}</p>
                         </li>
                         <li className='list-group-item'>
-                            <p className="detail-fields">Description: </p>
-                            <p>{bookDetails.volumeInfo.description}</p>
-                        </li>
-                        <li className='list-group-item'>
                             <p className="detail-fields">Categories: </p>
                             <p>{bookDetails.volumeInfo.categories}</p>
                         </li>
                         <li className='list-group-item'>
+                            <p className="detail-fields">Ratings Count:</p>
+                            <p>{bookDetails.volumeInfo.ratingsCount}</p>
                             <p className="detail-fields">Average Rating:</p>
                             <p>{bookDetails.volumeInfo.averageRating} </p>
                         </li>

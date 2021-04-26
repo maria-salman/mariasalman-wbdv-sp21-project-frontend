@@ -87,7 +87,7 @@ const Register = ({user}) => {
                 </div>
                 <div className="form-group row col-sm-10">
                     <label htmlFor='register-btn' className="col-sm-2 col-form-label"/>
-                         <button className='btn btn-primary btn-block col-sm-10 form-control'
+                         <button className='btn btn-secondary btn-block col-sm-10 form-control'
                                  onClick={register}>
                              Register</button>
                 </div>

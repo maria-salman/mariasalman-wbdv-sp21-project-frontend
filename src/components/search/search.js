@@ -53,7 +53,7 @@ const Search = () => {
                         onChange={onInputChange}
                     />
                     <button type="submit"
-                            className="btn btn-primary"
+                            className="btn btn-secondary"
                             onClick={updateSearch}>
                         Search
                     </button>
@@ -85,7 +85,7 @@ const Search = () => {
                                                 <br/>
                                                 <h4>{book.volumeInfo.title}</h4>
                                                 <p>Author(s): {bookAuthors(book.volumeInfo.authors)}</p>
-                                                <p>Published Date: {book.volumeInfo.publishedDate}</p>
+                                                <p>Description: {book.volumeInfo.description}</p>
                                                 <button className="btn btn-primary">
                                                     <Link to={`/details/${book.id}`}
                                                           className="user-name-link">
