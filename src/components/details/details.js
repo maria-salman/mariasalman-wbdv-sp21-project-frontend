@@ -158,14 +158,35 @@ const Details = ({user}) => {
                                  height="275px" width="185px"
                             />
                         </li>
-                        <li className='list-group-item'>Title: {bookDetails.volumeInfo.title}</li>
-                        <li className='list-group-item'>Author(s):  {bookDetails.volumeInfo.authors}</li>
-                        <li className='list-group-item'>Description: {bookDetails.volumeInfo.description}</li>
-                        <li className='list-group-item'>Categories: {bookDetails.volumeInfo.categories}</li>
-                        <li className='list-group-item'>Average Rating: {bookDetails.volumeInfo.averageRating}</li>
-                        <li className='list-group-item'>Page Count: {bookDetails.volumeInfo.pageCount}</li>
-                        <li className='list-group-item'>Publisher: {bookDetails.volumeInfo.publisher}
-                            <p>Published Date: {bookDetails.volumeInfo.publishedDate}</p>
+                        <li className='list-group-item'>
+                            <p className="detail-fields">Title:</p>
+                            <p>{bookDetails.volumeInfo.title}</p>
+                        </li>
+                        <li className='list-group-item'>
+                            <p className="detail-fields">Author(s):  </p>
+                            <p>{bookDetails.volumeInfo.authors}</p>
+                        </li>
+                        <li className='list-group-item'>
+                            <p className="detail-fields">Description: </p>
+                            <p>{bookDetails.volumeInfo.description}</p>
+                        </li>
+                        <li className='list-group-item'>
+                            <p className="detail-fields">Categories: </p>
+                            <p>{bookDetails.volumeInfo.categories}</p>
+                        </li>
+                        <li className='list-group-item'>
+                            <p className="detail-fields">Average Rating:</p>
+                            <p>{bookDetails.volumeInfo.averageRating} </p>
+                        </li>
+                        <li className='list-group-item'>
+                            <p className="detail-fields">Page Count: </p>
+                            <p>{bookDetails.volumeInfo.pageCount}</p>
+                        </li>
+                        <li className='list-group-item'>
+                            <p className="detail-fields">Publisher: </p>
+                            <p>{bookDetails.volumeInfo.publisher}</p>
+                            <p className="detail-fields">Published Date:</p>
+                            <p>{bookDetails.volumeInfo.publishedDate}</p>
                         </li>
                     </ul>
                 </div>

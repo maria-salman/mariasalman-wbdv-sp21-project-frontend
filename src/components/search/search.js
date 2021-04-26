@@ -57,7 +57,7 @@ const Search = () => {
                         Search
                     </button>
                     <h6 className="details-text col-sm-10">
-                        Click on "More Details" or the book icon to learn more!
+                        Click on "More Details" or the book cover to learn more!
                     </h6>
                 </div>
                 <br/>
