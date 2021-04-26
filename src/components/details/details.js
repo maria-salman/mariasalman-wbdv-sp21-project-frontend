@@ -141,7 +141,7 @@ const Details = ({user}) => {
                                 !bookmark &&
                                 <button className='btn btn-clear'
                                         onClick={onClickMustLogin}>
-                                    <i className='far fa-bookmark row-cols-sm-2 bookmark'>
+                                    <i className='far fa-bookmark bookmark'>
                                         Add Bookmark
                                     </i>
                                 </button>

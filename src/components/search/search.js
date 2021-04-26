@@ -14,12 +14,13 @@ const Search = () => {
 
     let API_URL = `https://www.googleapis.com/books/v1/volumes`;
     const fetchBooks = async () => {
-        const result = await axios.get(`${API_URL}?q=${searchTerm}`);
+        const result = await axios.get(`${API_URL}?q=${searchTerm}`)
         setBooks(result.data);
     }
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        fetchBooks();
+        fetchBooks().catch(() => alert('Invalid search term.'));
+
     }
 
     const bookAuthors = authors => {
@@ -47,7 +48,7 @@ const Search = () => {
                     <input
                         type="search"
                         className="form-control col-sm-10"
-                        placeholder="Book Title"
+                        placeholder="Book Title or Author name"
                         value={searchTerm}
                         onChange={onInputChange}
                     />
@@ -56,44 +57,51 @@ const Search = () => {
                             onClick={updateSearch}>
                         Search
                     </button>
-                    <h6 className="details-text col-sm-10">
-                        Click on "More Details" or the book cover to learn more!
-                    </h6>
                 </div>
                 <br/>
             </form>
-            <div className="bottom-padding">
-                <ul>
-                    {
-                        books.items.map((book, index) => {
-                            return (
-                                <li key={index}>
-                                    <div>
-                                        <br/>
-                                        <Link to={`/details/${book.id}`}>
-                                            <img alt={`${book.volumeInfo.title} book`}
-                                                 src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=5&source=gbs_api`} />
-                                        </Link>
+            {books.items === undefined &&
+            <div className="alert-warning col-sm-4">
+                Your search returned no results. Try something else.
+                </div>
+            }
+            { searchTerm !== undefined && books.items !== undefined &&
+                <div className="bottom-padding">
+                    <h6 className="details-text col-sm-10">
+                        Click on "More Details" or the book cover to learn more!
+                    </h6>
+                    <ul>
+                        {
+                            books.items.map((book, index) => {
+                                return (
+                                    <li key={index}>
                                         <div>
                                             <br/>
-                                            <h4>{book.volumeInfo.title}</h4>
-                                            <p>Author(s): { bookAuthors(book.volumeInfo.authors) }</p>
-                                            <p>Published Date: {book.volumeInfo.publishedDate}</p>
-                                            <button className="btn btn-primary">
-                                                <Link to={`/details/${book.id}`}
-                                                    className="user-name-link">
-                                                    More Details
-                                                </Link>
-                                            </button>
+                                            <Link to={`/details/${book.id}`}>
+                                                <img alt={`${book.volumeInfo.title} book`}
+                                                     src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=5&source=gbs_api`}/>
+                                            </Link>
+                                            <div>
+                                                <br/>
+                                                <h4>{book.volumeInfo.title}</h4>
+                                                <p>Author(s): {bookAuthors(book.volumeInfo.authors)}</p>
+                                                <p>Published Date: {book.volumeInfo.publishedDate}</p>
+                                                <button className="btn btn-primary">
+                                                    <Link to={`/details/${book.id}`}
+                                                          className="user-name-link">
+                                                        More Details
+                                                    </Link>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <hr/>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
+                                        <hr/>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            }
         </section>
     )
 }

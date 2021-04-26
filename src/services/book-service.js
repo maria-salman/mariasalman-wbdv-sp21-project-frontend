@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 export const findBookByTitle = (title) =>
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${title}&key=${process.env.REACT_APP_API_KEY}`, {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${title}`, {
     }).then(response => response.json());
 
 export function findBookById(bookId) {
