@@ -104,7 +104,7 @@ const Profile = ({user, setUser}) => {
                             Warning! Must be logged in to view profile.
                         </strong>
                     </div>
-                    <Link className='btn btn-primary'
+                    <Link className='btn btn-secondary'
                           to='/login'>
                         Login now
                     </Link>
@@ -118,7 +118,7 @@ const Profile = ({user, setUser}) => {
                         <h4 className="account-headers col-11">
                             General Account Settings
                         </h4>
-                        <button className='btn btn-primary float-right col-1 edit-profile-btn'
+                        <button className='btn btn-secondary float-right col-1 edit-profile-btn'
                                 onClick={() =>
                                     setEditing(true)}>
                             Edit settings
