@@ -1,9 +1,10 @@
 ## **Project Description:**
 https://docs.google.com/document/d/1UnjB0bxt1GUPC1cGhjIkf3HHIZD3DjCxLxfYCS1_fTM/edit
 
-## **Prototype Wiki located at:**
+## **Prototype Wiki:**
 https://github.com/maria-salman/wbdv-sp21-project-frontend/wiki/PROTOTYPE
 
+## **Instructions**
 This is the front end repo. The back end repo is located at: 
 https://github.com/maria-salman/wbdv-sp21-project-backend
 
