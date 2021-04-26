@@ -1,23 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import userService from '../../services/user-service'
 import bookmarkService from '../../services/bookmark-service'
 import './home.css'
 
 const Home = ({user}) => {
-    const [readers, setReaders] = useState([])
-    const [authors, setAuthors] = useState([])
+
     const [bookmarks, setBookmarks] = useState([])
-
-    useEffect(() => {
-        userService.findAllAuthors()
-            .then(res => setAuthors(res));
-    }, [])
-
-    useEffect(() => {
-        userService.findAllReaders()
-            .then(res => setReaders(res));
-    }, [])
 
     useEffect(() => {
         bookmarkService.getAllBookmarks()
@@ -27,7 +15,6 @@ const Home = ({user}) => {
     return (
         <div>
             <br/>
-            <h1>Home</h1>
             <Link to="/register"
                   className="home-links">
                 Register
@@ -50,54 +37,12 @@ const Home = ({user}) => {
             <br/>
             <br/>
             <br/>
-            <div className="row author-reader-list home-page-users">
-                <h4 className="col-sm home-page-users">
-                    <span className="user-name-link-background">
-                        Check out our author profiles
-                    </span>
-                </h4>
-                <h4 className="col-sm home-page-users">
-                    <span className="user-name-link-background">
-                        Explore our reader profiles
-                    </span>
-                </h4>
-            </div>
-            <div className="row home-page-users author-reader-list">
-                    <ul className='list-group user-list col-sm'>
-                        {
-                            authors.map(author =>
-                                <li className='list-group-item col-sm'
-                                    key={author._id}>
-                                    <Link
-                                        to={`/profile/${author._id}`}
-                                        className="user-links">
-                                        {author.username}
-                                    </Link>
-                                </li>)
-                        }
-                    </ul>
-
-                <ul className='list-group user-list col-sm'>
-                    {
-                        readers.map(reader =>
-                            <li className='list-group-item col-sm'
-                                key={reader._id}>
-                                <Link
-                                    to={`/profile/${reader._id}`}
-                                    className="user-links">
-                                    {reader.username}
-                                </Link>
-                            </li>)
-                    }
-                </ul>
-            </div>
-            <br/>
             <br/>
             { user &&
                 <div className="bottom-padding">
                     <h4>
                         <span className="user-name-link-background">
-                        Here's what people are bookmarking.
+                        Take a look at what people are reading.
                         </span>
                     </h4>
                     <ul className='homepage-icons'>
@@ -124,7 +69,7 @@ const Home = ({user}) => {
                 <div>
                     <h4>
                         <span className="user-name-link-background">
-                            Create an account or log in to see what our users are bookmarking.
+                            Create an account or log in to see what our users are adding to their bookshelves.
                         </span>
                     </h4>
                 </div>

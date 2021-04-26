@@ -1,4 +1,4 @@
-body{
+body {
     background-image: url('https://www.qualtrics.com/m/assets/blog/wp-content/uploads/2018/08/shutterstock_1068141515.jpg');
     background-size: cover;
     background-repeat: repeat;
@@ -36,6 +36,8 @@ h1 {
 .user-name-link-background {
     color: white;
     background-color: #b24040;
+    border-radius: 2px;
+    box-shadow: 4px 4px indianred;
 }
 
 .bookmark-list-padding {

@@ -5,10 +5,12 @@ import bookmarkService from '../../services/bookmark-service'
 import recommendationService from '../../services/recommendation-service'
 import './details.css'
 
+
 const Details = ({user}) => {
     const {bookId} = useParams();
     const [bookDetails, setBookDetails] = useState([]);
-    const [bookLoaded, setBookLoaded] = useState(false)
+    const [bookLoaded, setBookLoaded] = useState(false);
+    const [usersLoaded, setUsersLoaded] = useState(false);
     const [bookmark, setBookmark] = useState(false);
     const [recommendation, setRecommendation] = useState(false);
     const [users, setUsers] = useState([])
@@ -31,9 +33,13 @@ const Details = ({user}) => {
             }
     }, [bookId, user])
 
+
     useEffect(() => {
         bookmarkService.getAllUsersForBookmark(bookId)
-            .then(res => setUsers(res));
+            .then(res => {
+                setUsers(res)
+                setUsersLoaded(true)
+            })
     }, [bookId])
 
     const addBookmark = () => {
@@ -192,22 +198,24 @@ const Details = ({user}) => {
                 </div>
             </div>
             }
-            <div className="bottom-padding">
-                <h4 className="title-color">Check out who has bookmarked this!</h4>
-                <ul className='list-group'>
-                    {
-                        users.map(user =>
-                            <li className='list-group-item col-sm'
-                                key={user.userId}>
-                                <Link
-                                    to={`/profile/${user.userId}`}
-                                    className="user-links">
-                                    {user.username}
-                                </Link>
-                            </li>)
-                    }
-                </ul>
-            </div>
+            { usersLoaded  && users !== [] &&
+                <div className="bottom-padding">
+                    <h4 className="title-color">Check out who has bookmarked this!</h4>
+                    <ul className='list-group'>
+                        {
+                            users.map(user =>
+                                <li className='list-group-item col-sm'
+                                    key={user.userId}>
+                                    <Link
+                                        to={`/profile/${user.userId}`}
+                                        className="user-links">
+                                        {user.username}
+                                    </Link>
+                                </li>)
+                        }
+                    </ul>
+                </div>
+            }
         </div>
     )
 }
