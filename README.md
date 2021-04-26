@@ -12,7 +12,7 @@ Our project is hosted remotely at: http://wbdv-sp21-finalproject.herokuapp.com/ 
 
 If you wish to run the app locally, both the front and back end repos must be cloned to run this application. The following steps outline how to run the application locally.
 
-## **Steps**
+### **Steps**
 1. Clone front and back end repos.
 2. Define variable in .env file
   REACT_APP_USER_API = http://localhost:4000/api (to run locally).
