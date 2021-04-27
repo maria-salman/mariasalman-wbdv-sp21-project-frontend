@@ -230,7 +230,7 @@ const Details = ({user}) => {
                 </div>
             </div>
             }
-            { usersLoaded  && users !== [] &&
+            { usersLoaded  && users !== [] && user &&
                 <div className="bottom-padding">
                     <h4 className="title-color">Check out who has bookmarked this!</h4>
                     <ul className='list-group'>
