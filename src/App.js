@@ -51,7 +51,7 @@ function App() {
                         <div className='navbar-nav'>
                             <Link className='nav-item nav-link'
                                   to='/profile'>
-                                Profile
+                                My Profile
                             </Link>
                         </div>
                         <div className='navbar-nav'>
