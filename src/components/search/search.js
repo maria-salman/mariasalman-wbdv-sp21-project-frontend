@@ -48,7 +48,7 @@ const Search = () => {
                     <input
                         type="search"
                         className="form-control col-sm-10"
-                        placeholder="Book Title or Author name"
+                        placeholder="Book Title or Author Name"
                         value={searchTerm}
                         onChange={onInputChange}
                     />

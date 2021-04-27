@@ -3,6 +3,7 @@ import {Link, useHistory, useParams} from 'react-router-dom';
 import bookService from '../../services/book-service'
 import bookmarkService from '../../services/bookmark-service'
 import recommendationService from '../../services/recommendation-service'
+import authoredService from '../../services/authored-book-service'
 import './details.css'
 
 
@@ -13,6 +14,7 @@ const Details = ({user}) => {
     const [usersLoaded, setUsersLoaded] = useState(false);
     const [bookmark, setBookmark] = useState(false);
     const [recommendation, setRecommendation] = useState(false);
+    const [authoredBook, setAuthoredBook] = useState(false);
     const [users, setUsers] = useState([])
     const history = useHistory();
 
@@ -31,6 +33,10 @@ const Details = ({user}) => {
                 recommendationService.IsRecommendation(bookId, user._id)
                     .then(res => setRecommendation(res))
             }
+        if (user && user.role === "AUTHOR") {
+            authoredService.IsAuthoredBook(bookId, user._id)
+                .then(res => setAuthoredBook(res))
+        }
     }, [bookId, user])
 
 
@@ -60,6 +66,16 @@ const Details = ({user}) => {
     const removeRecommendation = () => {
         recommendationService.removeRecommendation(bookId, user._id)
             .then(() => setRecommendation(false));
+    }
+
+    const addAuthoredBook = () => {
+        authoredService.addAuthoredBook(bookId, user._id, user.username, bookDetails.volumeInfo.title)
+            .then(() => setAuthoredBook(true));
+    }
+
+    const removeAuthoredBook = () => {
+        authoredService.removeAuthoredBook(bookId, user._id)
+            .then(() => setAuthoredBook(false));
     }
 
     const onClickMustLogin = () => {
@@ -100,14 +116,14 @@ const Details = ({user}) => {
                     }
                     {
                     user && user.role === "AUTHOR" &&
-                    <div>
+                    <div className="left-author-padding">
                         <Link className='fas fa-book bookmark float-right library-padding' to='/profile'>My library</Link>
                         {
                             !bookmark &&
                             <button className='btn btn-clear'
                                     onClick={addBookmark}>
-                                <i className='fas fa-pen float-right bookmark left-padding'>
-                                    Add to Author List
+                                <i className='far fa-bookmark float-right bookmark left-padding'>
+                                    Bookmark
                                 </i>
                             </button>
                         }
@@ -115,8 +131,8 @@ const Details = ({user}) => {
                             bookmark &&
                             <button className='btn btn-clear'
                                     onClick={removeBookmark}>
-                                <i className='far fa-trash-alt float-right bookmark'>
-                                    Remove from Author List
+                                <i className='fas fa-bookmark float-right bookmark'>
+                                    Remove Bookmark
                                 </i>
                             </button>
                         }
@@ -135,6 +151,24 @@ const Details = ({user}) => {
                                     onClick={removeRecommendation}>
                                 <i className='fas fa-minus-circle float-right bookmark'>
                                     Remove Recommendation
+                                </i>
+                            </button>
+                        }
+                        {
+                            !authoredBook &&
+                            <button className='btn btn-clear'
+                                    onClick={addAuthoredBook}>
+                                <i className='fas fa-pen float-right bookmark'>
+                                    Add to Authored List
+                                </i>
+                            </button>
+                        }
+                        {
+                            authoredBook &&
+                            <button className='btn btn-clear'
+                                    onClick={removeAuthoredBook}>
+                                <i className='fas fa-minus-circle float-right bookmark'>
+                                    Remove from Authored List
                                 </i>
                             </button>
                         }

@@ -45,7 +45,7 @@ const Home = ({user}) => {
                     </Link>
                 </div>
                 <p className="col-sm-4 home-description"><span>A home for your books.
-                    Bookmark what you’re reading, or bookmark what you want to read next or add your whole library.
+                    Bookmark what you’re reading, or bookmark what you want to read next, or use this as a place to keep track of what you've already read.
                     Deciding what to read next? Join readers like you and discover books.</span></p>
             </div>
             <br/>

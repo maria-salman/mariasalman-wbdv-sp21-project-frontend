@@ -2,13 +2,15 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import userService from '../../services/user-service';
 import bookmarkService from '../../services/bookmark-service';
-import recommendationService from '../../services/recommendation-service'
+import recommendationService from '../../services/recommendation-service';
+import authoredService from '../../services/authored-book-service';
 
 const Profile = ({user, setUser}) => {
 
     const [editing, setEditing] = useState(false);
     const [bookmarks, setBookmarks] = useState([]);
     const [recommendations, setRecommendations] = useState([]);
+    const [authoredBooks, setAuthoredBooks] = useState([]);
 
     const onChangeFullName = (e) => {
         const text = e.target.value;
@@ -42,6 +44,10 @@ const Profile = ({user, setUser}) => {
         if (user && user.role === "AUTHOR") {
             recommendationService.getRecommendationsForUser(user._id)
                 .then(res => setRecommendations(res));
+        }
+        if (user && user.role === "AUTHOR") {
+            authoredService.getAuthoredBooksForUser(user._id)
+                .then(res => setAuthoredBooks(res));
         }
     }, [user])
 
@@ -158,11 +164,11 @@ const Profile = ({user, setUser}) => {
                         Authored Books
                     </h4>
                     <ul className='list-group bookmark-link'>
-                        {bookmarks.map(bookmark =>
-                            <Link key={bookmark._id}
+                        {authoredBooks.map(book =>
+                            <Link key={book._id}
                                   className='list-group-item bookmark-link'
-                                  to={`/details/${bookmark.bookId}`}>
-                                {bookmark.bookTitle}
+                                  to={`/details/${book.bookId}`}>
+                                  {book.bookTitle}
                             </Link>
                         )}
                     </ul>
@@ -170,7 +176,7 @@ const Profile = ({user, setUser}) => {
             }
             <br/>
             { !editing && user && user.role === "AUTHOR" &&
-                <div className="bottom-padding">
+                <div>
                     <h4 className="account-headers">
                         Recommendation List
                     </h4>
@@ -184,7 +190,23 @@ const Profile = ({user, setUser}) => {
                              )}
                         </ul>
                 </div>
-
+            }
+            <br/>
+            { !editing && user && user.role === "AUTHOR" &&
+            <div className="bottom-padding">
+                <h4 className="account-headers">
+                    Bookmarks
+                </h4>
+                <ul className='list-group bookmark-link'>
+                    {bookmarks.map(bookmark =>
+                        <Link key={bookmark._id}
+                              className='list-group-item bookmark-link'
+                              to={`/details/${bookmark.bookId}`}>
+                            {bookmark.bookTitle}
+                        </Link>
+                    )}
+                </ul>
+            </div>
             }
         </div>
     )
