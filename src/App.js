@@ -48,12 +48,14 @@ function App() {
                                 Search
                             </Link>
                         </div>
-                        <div className='navbar-nav'>
-                            <Link className='nav-item nav-link'
-                                  to='/profile'>
-                                My Profile
-                            </Link>
-                        </div>
+                        { user &&
+                            <div className='navbar-nav'>
+                                <Link className='nav-item nav-link'
+                                      to='/profile'>
+                                    My Profile
+                                </Link>
+                            </div>
+                        }
                         <div className='navbar-nav'>
                             <Link className='nav-item nav-link'
                                   to='/profile-list'>
