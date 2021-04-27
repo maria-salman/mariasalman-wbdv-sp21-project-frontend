@@ -38,6 +38,7 @@ const ProfileDetails = () => {
             {loaded && user && user.role === "READER" &&
                 <div>
                     <h1>{user.username}'s Profile</h1>
+                    <h6>{user.role}</h6>
                     <br/>
                     <h3>Bookmarks</h3>
                     <div className="bottom-padding">
@@ -56,6 +57,7 @@ const ProfileDetails = () => {
             {loaded && user && user.role === "AUTHOR" &&
             <div>
                 <h1>{user.username}'s Profile</h1>
+                <h6>{user.role}</h6>
                 <br/>
                 <div>
                 <h3>Authored Books</h3>
